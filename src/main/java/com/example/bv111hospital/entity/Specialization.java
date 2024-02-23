@@ -13,7 +13,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Specializations {
+@Table(name = "specializations")
+public class Specialization {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "Id", nullable = false)
@@ -23,14 +24,14 @@ public class Specializations {
     private String name;
 
     @ManyToMany(mappedBy = "specializations")
-    private Set<Doctors> doctors;
+    private Set<Doctor> doctors;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Specializations that = (Specializations) o;
+        Specialization that = (Specialization) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;

@@ -6,6 +6,7 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -13,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "departments")
-public class Departments {
+public class Department {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_department", nullable = false)
@@ -34,8 +35,8 @@ public class Departments {
     @OneToMany(mappedBy = "departments")
     private List<Donations> donations;
 
-    @OneToMany(mappedBy = "departmentsByDepartmentId")
-    private Collection<Wards> wardsByIdDepartment;
+    @OneToMany(mappedBy = "department")
+    private Set<Ward> wards;
 
 
 
@@ -44,7 +45,7 @@ public class Departments {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Departments that = (Departments) o;
+        Department that = (Department) o;
 
         if (idDepartment != null ? !idDepartment.equals(that.idDepartment) : that.idDepartment != null) return false;
         if (building != null ? !building.equals(that.building) : that.building != null) return false;

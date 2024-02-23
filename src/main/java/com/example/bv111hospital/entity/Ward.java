@@ -1,11 +1,19 @@
 package com.example.bv111hospital.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Collection;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Wards {
+@Table(name = "wards")
+public class Ward {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_wards", nullable = false)
@@ -25,25 +33,27 @@ public class Wards {
     @Basic
     @Column(name = "DepartmentId", nullable = false)
     private Integer departmentId;
+
     @OneToMany(mappedBy = "wardsByWardId")
     private Collection<Doctorsexaminations> doctorsexaminationsByIdWards;
+
     @ManyToOne
     @JoinColumn(name = "DepartmentId", referencedColumnName = "id_department", nullable = false)
-    private Department departmentByDepartmentId;
+    private Department department;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Wards wards = (Wards) o;
+        Ward ward = (Ward) o;
 
-        if (idWards != null ? !idWards.equals(wards.idWards) : wards.idWards != null) return false;
-        if (building != null ? !building.equals(wards.building) : wards.building != null) return false;
-        if (floor != null ? !floor.equals(wards.floor) : wards.floor != null) return false;
-        if (name != null ? !name.equals(wards.name) : wards.name != null) return false;
-        if (place != null ? !place.equals(wards.place) : wards.place != null) return false;
-        if (departmentId != null ? !departmentId.equals(wards.departmentId) : wards.departmentId != null) return false;
+        if (idWards != null ? !idWards.equals(ward.idWards) : ward.idWards != null) return false;
+        if (building != null ? !building.equals(ward.building) : ward.building != null) return false;
+        if (floor != null ? !floor.equals(ward.floor) : ward.floor != null) return false;
+        if (name != null ? !name.equals(ward.name) : ward.name != null) return false;
+        if (place != null ? !place.equals(ward.place) : ward.place != null) return false;
+        if (departmentId != null ? !departmentId.equals(ward.departmentId) : ward.departmentId != null) return false;
 
         return true;
     }
@@ -59,19 +69,4 @@ public class Wards {
         return result;
     }
 
-    public Collection<Doctorsexaminations> getDoctorsexaminationsByIdWards() {
-        return doctorsexaminationsByIdWards;
-    }
-
-    public void setDoctorsexaminationsByIdWards(Collection<Doctorsexaminations> doctorsexaminationsByIdWards) {
-        this.doctorsexaminationsByIdWards = doctorsexaminationsByIdWards;
-    }
-
-    public Department getDepartmentsByDepartmentId() {
-        return departmentByDepartmentId;
-    }
-
-    public void setDepartmentsByDepartmentId(Department departmentByDepartmentId) {
-        this.departmentByDepartmentId = departmentByDepartmentId;
-    }
 }

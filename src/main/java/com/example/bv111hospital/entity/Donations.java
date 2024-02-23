@@ -1,4 +1,4 @@
-package com.example.bv111hospital;
+package com.example.bv111hospital.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -30,7 +30,7 @@ public class Donations {
 
     @ManyToOne
     @JoinColumn(name = "DepartmentId", referencedColumnName = "id_department", nullable = false)
-    private Departments departments;
+    private Department department;
 
     @ManyToOne
     @JoinColumn(name = "SponsorId", referencedColumnName = "Id", nullable = false)

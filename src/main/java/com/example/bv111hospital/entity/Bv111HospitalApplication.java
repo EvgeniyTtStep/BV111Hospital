@@ -1,4 +1,4 @@
-package com.example.bv111hospital;
+package com.example.bv111hospital.entity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

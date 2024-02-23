@@ -12,7 +12,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doctors {
+@Table(name = "doctors")
+public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_doctors", nullable = false)
@@ -41,7 +42,7 @@ public class Doctors {
             name = "doctorsspecializations",
             joinColumns = @JoinColumn(name = "DoctorId"),
             inverseJoinColumns = @JoinColumn(name = "SpecializationId"))
-    private Set<Specializations> specializations;
+    private Set<Specialization> specializations;
 
 
     @OneToMany(mappedBy = "doctorsByDoctorId")
@@ -54,14 +55,14 @@ public class Doctors {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Doctors doctors = (Doctors) o;
+        Doctor doctor = (Doctor) o;
 
-        if (idDoctors != null ? !idDoctors.equals(doctors.idDoctors) : doctors.idDoctors != null) return false;
-        if (name != null ? !name.equals(doctors.name) : doctors.name != null) return false;
-        if (phone != null ? !phone.equals(doctors.phone) : doctors.phone != null) return false;
-        if (premium != null ? !premium.equals(doctors.premium) : doctors.premium != null) return false;
-        if (salary != null ? !salary.equals(doctors.salary) : doctors.salary != null) return false;
-        if (surname != null ? !surname.equals(doctors.surname) : doctors.surname != null) return false;
+        if (idDoctors != null ? !idDoctors.equals(doctor.idDoctors) : doctor.idDoctors != null) return false;
+        if (name != null ? !name.equals(doctor.name) : doctor.name != null) return false;
+        if (phone != null ? !phone.equals(doctor.phone) : doctor.phone != null) return false;
+        if (premium != null ? !premium.equals(doctor.premium) : doctor.premium != null) return false;
+        if (salary != null ? !salary.equals(doctor.salary) : doctor.salary != null) return false;
+        if (surname != null ? !surname.equals(doctor.surname) : doctor.surname != null) return false;
 
         return true;
     }

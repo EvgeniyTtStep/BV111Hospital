@@ -1,4 +1,4 @@
-package com.example.bv111hospital;
+package com.example.bv111hospital.entity;
 
 import jakarta.persistence.*;
 
@@ -33,13 +33,13 @@ public class Doctorsexaminations {
     private Deseases deseasesByDeseasesId;
     @ManyToOne
     @JoinColumn(name = "doctor_id", referencedColumnName = "id_doctors", nullable = false)
-    private Doctors doctorsByDoctorId;
+    private Doctor doctorByDoctorId;
     @ManyToOne
     @JoinColumn(name = "examination_id", referencedColumnName = "id_examinations", nullable = false)
     private Examinations examinationsByExaminationId;
     @ManyToOne
     @JoinColumn(name = "ward_id", referencedColumnName = "id_wards", nullable = false)
-    private Wards wardsByWardId;
+    private Ward wardByWardId;
 
     public Integer getIdDoctorsexaminations() {
         return idDoctorsexaminations;
@@ -137,12 +137,12 @@ public class Doctorsexaminations {
         this.deseasesByDeseasesId = deseasesByDeseasesId;
     }
 
-    public Doctors getDoctorsByDoctorId() {
-        return doctorsByDoctorId;
+    public Doctor getDoctorsByDoctorId() {
+        return doctorByDoctorId;
     }
 
-    public void setDoctorsByDoctorId(Doctors doctorsByDoctorId) {
-        this.doctorsByDoctorId = doctorsByDoctorId;
+    public void setDoctorsByDoctorId(Doctor doctorByDoctorId) {
+        this.doctorByDoctorId = doctorByDoctorId;
     }
 
     public Examinations getExaminationsByExaminationId() {
@@ -153,11 +153,11 @@ public class Doctorsexaminations {
         this.examinationsByExaminationId = examinationsByExaminationId;
     }
 
-    public Wards getWardsByWardId() {
-        return wardsByWardId;
+    public Ward getWardsByWardId() {
+        return wardByWardId;
     }
 
-    public void setWardsByWardId(Wards wardsByWardId) {
-        this.wardsByWardId = wardsByWardId;
+    public void setWardsByWardId(Ward wardByWardId) {
+        this.wardByWardId = wardByWardId;
     }
 }

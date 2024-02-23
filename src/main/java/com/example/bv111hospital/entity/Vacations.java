@@ -1,4 +1,4 @@
-package com.example.bv111hospital;
+package com.example.bv111hospital.entity;
 
 import jakarta.persistence.*;
 
@@ -21,7 +21,7 @@ public class Vacations {
     private Integer doctorId;
     @ManyToOne
     @JoinColumn(name = "DoctorId", referencedColumnName = "id_doctors", nullable = false)
-    private Doctors doctorsByDoctorId;
+    private Doctor doctorByDoctorId;
 
     public Integer getId() {
         return id;
@@ -79,11 +79,11 @@ public class Vacations {
         return result;
     }
 
-    public Doctors getDoctorsByDoctorId() {
-        return doctorsByDoctorId;
+    public Doctor getDoctorsByDoctorId() {
+        return doctorByDoctorId;
     }
 
-    public void setDoctorsByDoctorId(Doctors doctorsByDoctorId) {
-        this.doctorsByDoctorId = doctorsByDoctorId;
+    public void setDoctorsByDoctorId(Doctor doctorByDoctorId) {
+        this.doctorByDoctorId = doctorByDoctorId;
     }
 }
