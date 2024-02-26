@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -32,8 +31,8 @@ public class Department {
     @Column(name = "name", nullable = false, length = 255)
     private String name;
 
-    @OneToMany(mappedBy = "departments")
-    private List<Donations> donations;
+    @OneToMany(mappedBy = "department")
+    private List<Donation> donations;
 
     @OneToMany(mappedBy = "department")
     private Set<Ward> wards;

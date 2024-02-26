@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+
+<h2>Departments</h2>
+<div th:each="department: ${departments}">
+    <div>Name: <span th:text="${department.name}"/></div>
+    <div>Floor: <span th:text="${department.floor}"/></div>
+    <div>Building: <span th:text="${department.building}"/></div>
+    <div>Financing: <span th:text="${department.financing}"/></div>
+    <br>
+</div>
+
+
+</body>
+</html>

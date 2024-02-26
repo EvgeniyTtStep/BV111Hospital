@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,8 +35,8 @@ public class Doctor {
     @Column(name = "surname", nullable = false, length = 255)
     private String surname;
 
-    @OneToMany(mappedBy = "doctorsByDoctorId")
-    private Collection<Doctorsexaminations> doctorsexaminationsByIdDoctors;
+    @OneToMany(mappedBy = "doctor")
+    private List<Doctorsexamination> doctorsexamination;
 
     @ManyToMany
     @JoinTable(
@@ -45,8 +46,8 @@ public class Doctor {
     private Set<Specialization> specializations;
 
 
-    @OneToMany(mappedBy = "doctorsByDoctorId")
-    private Collection<Vacations> vacationsByIdDoctors;
+    @OneToMany(mappedBy = "doctor")
+    private List<Vacation> vacations;
 
 
 

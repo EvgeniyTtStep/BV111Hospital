@@ -1,13 +1,23 @@
 package com.example.bv111hospital.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.sql.Time;
 import java.util.Collection;
+import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class Examinations {
+@Table(name = "examinations")
+public class Examination {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id_examinations", nullable = false)
@@ -27,63 +37,18 @@ public class Examinations {
     @Basic
     @Column(name = "endTime", nullable = false)
     private Time endTime;
-    @OneToMany(mappedBy = "examinationsByExaminationId")
-    private Collection<Doctorsexaminations> doctorsexaminationsByIdExaminations;
 
-    public Integer getIdExaminations() {
-        return idExaminations;
-    }
+    @OneToMany(mappedBy = "examination")
+    private List<Doctorsexamination> doctorsexamination;
 
-    public void setIdExaminations(Integer idExaminations) {
-        this.idExaminations = idExaminations;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public void setDayOfWeek(Integer dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
-    }
-
-    public BigDecimal getSalary() {
-        return salary;
-    }
-
-    public void setSalary(BigDecimal salary) {
-        this.salary = salary;
-    }
-
-    public Time getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Time startTime) {
-        this.startTime = startTime;
-    }
-
-    public Time getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Time endTime) {
-        this.endTime = endTime;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Examinations that = (Examinations) o;
+        Examination that = (Examination) o;
 
         if (idExaminations != null ? !idExaminations.equals(that.idExaminations) : that.idExaminations != null)
             return false;
@@ -107,11 +72,4 @@ public class Examinations {
         return result;
     }
 
-    public Collection<Doctorsexaminations> getDoctorsexaminationsByIdExaminations() {
-        return doctorsexaminationsByIdExaminations;
-    }
-
-    public void setDoctorsexaminationsByIdExaminations(Collection<Doctorsexaminations> doctorsexaminationsByIdExaminations) {
-        this.doctorsexaminationsByIdExaminations = doctorsexaminationsByIdExaminations;
-    }
 }
