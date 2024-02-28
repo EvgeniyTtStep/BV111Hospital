@@ -11,7 +11,4 @@ import java.util.List;
 
 @Repository
 public interface DoctorRepo extends JpaRepository<Doctor, Integer> {
-
-    List<Doctor> getDoctorsBySpecializations(List<Specialization> specializations);
-
 }

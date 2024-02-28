@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.sql.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,15 +18,15 @@ public class Vacation {
     @Column(name = "Id", nullable = false)
     private Integer id;
     @Basic
-    @Column(name = "EndDate", nullable = false)
+    @Column(name = "end_date", nullable = false)
     private Date endDate;
     @Basic
-    @Column(name = "StartDate", nullable = false)
+    @Column(name = "start_date", nullable = false)
     private Date startDate;
 
 
     @ManyToOne
-    @JoinColumn(name = "DoctorId", referencedColumnName = "id_doctors", nullable = false)
+    @JoinColumn(name = "doctor_id", referencedColumnName = "id_doctors", nullable = false)
     private Doctor doctor;
 
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Info</title>
+</head>
+<body>
+
+<h1 th:inline="text">Hello <span th:remove="tag" th:authentication="name">thymeleaf</span>!</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+
+<h2>Doctor info</h2>
+<ul>
+    <li th:text="${doctor.name}"/>
+    <li th:text="${doctor.surname}"/>
+    <li th:text="${doctor.phone}"/>
+    <li th:each="vacation: ${doctor.vacations}">
+        <ul>
+            <li th:text="${vacation.startDate + ' ' + vacation.endDate}"/>
+        </ul>
+    </li>
+</ul>
+
+
+</body>
+</html>

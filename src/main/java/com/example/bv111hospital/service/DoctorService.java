@@ -29,7 +29,6 @@ public class DoctorService {
 //    }
 
 
-
     public List<Doctor> getDoctorsBySpecializations(List<Specialization> specializations) {
         List<Doctor> doctorAll = doctorRepo.findAll();
         List<Doctor> filteredDoctors = new ArrayList<>();
@@ -49,4 +48,7 @@ public class DoctorService {
         return filteredDoctors;
     }
 
+    public Doctor getById(Integer idDoctor) {
+        return doctorRepo.findById(idDoctor).orElse(new Doctor());
+    }
 }
