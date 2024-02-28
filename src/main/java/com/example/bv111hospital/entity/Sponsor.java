@@ -1,10 +1,7 @@
 package com.example.bv111hospital.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,6 +10,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @Entity
 @Table(name = "sponsors")
 public class Sponsor {
@@ -29,24 +27,5 @@ public class Sponsor {
 
 
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Sponsor sponsor = (Sponsor) o;
-
-        if (id != null ? !id.equals(sponsor.id) : sponsor.id != null) return false;
-        if (name != null ? !name.equals(sponsor.name) : sponsor.name != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
 
 }

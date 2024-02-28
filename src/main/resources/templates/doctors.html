@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctors</title>
+    <style>
+        table, tr,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<form action="">
+    <input type="checkbox">
+</form>
+
+<form th:action="@{/doctor/specializations}"  id="categoryForm">
+    <ul>
+        <li th:each="specialization : ${specializations}">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" th:name="selectedSpecializations" th:value="${specialization.name}"
+                       th:id="${specialization.name}"
+
+                       th:checked="${selectedSpecializations!=null && selectedSpecializations.contains(specialization)}">
+
+                <span th:text="${specialization.name}"></span>
+            </div>
+        </li>
+    </ul>
+    <button type="submit">Find</button>
+</form>
+
+
+
+<h2>Doctors</h2>
+
+<table>
+    <tr>
+        <td>Doctor name</td>
+        <td>Doctor surname</td>
+        <td>Doctor phone</td>
+    </tr>
+    <tr th:each="doctor: ${doctors}">
+        <td th:text="${doctor.name}"/>
+        <td th:text="${doctor.surname}"/>
+        <td th:text="${doctor.phone}"/>
+    </tr>
+</table>
+
+</body>
+</html>

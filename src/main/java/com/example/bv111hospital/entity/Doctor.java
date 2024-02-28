@@ -13,6 +13,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @Table(name = "doctors")
 public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,33 +51,5 @@ public class Doctor {
     private List<Vacation> vacations;
 
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Doctor doctor = (Doctor) o;
-
-        if (idDoctors != null ? !idDoctors.equals(doctor.idDoctors) : doctor.idDoctors != null) return false;
-        if (name != null ? !name.equals(doctor.name) : doctor.name != null) return false;
-        if (phone != null ? !phone.equals(doctor.phone) : doctor.phone != null) return false;
-        if (premium != null ? !premium.equals(doctor.premium) : doctor.premium != null) return false;
-        if (salary != null ? !salary.equals(doctor.salary) : doctor.salary != null) return false;
-        if (surname != null ? !surname.equals(doctor.surname) : doctor.surname != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = idDoctors != null ? idDoctors.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (premium != null ? premium.hashCode() : 0);
-        result = 31 * result + (salary != null ? salary.hashCode() : 0);
-        result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        return result;
-    }
 
 }
