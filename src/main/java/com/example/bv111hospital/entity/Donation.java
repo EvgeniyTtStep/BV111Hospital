@@ -19,7 +19,7 @@ public class Donation {
     @Column(name = "Id", nullable = false)
     private Integer id;
     @Basic
-    @Column(name = "Amount", nullable = false, precision = 2)
+    @Column(name = "Amount", nullable = false)
     private BigDecimal amount;
     @Basic
     @Column(name = "Date", nullable = false)

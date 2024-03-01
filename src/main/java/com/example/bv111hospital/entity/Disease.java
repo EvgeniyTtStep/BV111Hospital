@@ -21,7 +21,7 @@ public class Disease {
     @Column(name = "id_deseases", nullable = false)
     private Integer idDeseases;
     @Basic
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false)
     private String name;
     @Basic
     @Column(name = "severity", nullable = false)

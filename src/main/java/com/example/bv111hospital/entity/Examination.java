@@ -27,7 +27,7 @@ public class Examination {
     @Column(name = "dayOfWeek", nullable = false)
     private Integer dayOfWeek;
     @Basic
-    @Column(name = "salary", nullable = false, precision = 2)
+    @Column(name = "salary", nullable = false)
     private BigDecimal salary;
     @Basic
     @Column(name = "startTime", nullable = false)

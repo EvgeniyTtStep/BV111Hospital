@@ -25,7 +25,7 @@ public class Ward {
     @Column(name = "floor", nullable = false)
     private Integer floor;
     @Basic
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false)
     private String name;
     @Basic
     @Column(name = "place", nullable = false)

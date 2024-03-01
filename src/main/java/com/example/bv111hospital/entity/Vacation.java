@@ -24,7 +24,6 @@ public class Vacation {
     @Column(name = "start_date", nullable = false)
     private Date startDate;
 
-
     @ManyToOne
     @JoinColumn(name = "doctor_id", referencedColumnName = "id_doctors", nullable = false)
     private Doctor doctor;

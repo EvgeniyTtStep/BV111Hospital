@@ -26,10 +26,10 @@ public class Department {
     @Column(name = "floor", nullable = false)
     private Integer floor;
     @Basic
-    @Column(name = "financing", nullable = false, precision = 2)
+    @Column(name = "financing", nullable = false)
     private BigDecimal financing;
     @Basic
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "department")

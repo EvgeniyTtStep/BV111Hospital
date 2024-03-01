@@ -21,19 +21,19 @@ public class Doctor {
     @Column(name = "id_doctors", nullable = false)
     private Integer idDoctors;
     @Basic
-    @Column(name = "name", nullable = false, length = 255)
+    @Column(name = "name", nullable = false)
     private String name;
     @Basic
-    @Column(name = "phone", nullable = false, length = 10)
+    @Column(name = "phone", nullable = false)
     private String phone;
     @Basic
     @Column(name = "premium", nullable = false)
     private Integer premium;
     @Basic
-    @Column(name = "salary", nullable = false, precision = 2)
+    @Column(name = "salary", nullable = false)
     private BigDecimal salary;
     @Basic
-    @Column(name = "surname", nullable = false, length = 255)
+    @Column(name = "surname", nullable = false)
     private String surname;
 
     @OneToMany(mappedBy = "doctor")
@@ -47,9 +47,7 @@ public class Doctor {
     private Set<Specialization> specializations;
 
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor", fetch = FetchType.LAZY)
     private List<Vacation> vacations;
-
-
 
 }

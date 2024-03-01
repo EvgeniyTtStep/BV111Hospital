@@ -19,7 +19,7 @@ public class Specialization {
     @Column(name = "Id", nullable = false)
     private Integer id;
     @Basic
-    @Column(name = "Name", nullable = false, length = 100)
+    @Column(name = "Name", nullable = false)
     private String name;
 
     @ManyToMany(mappedBy = "specializations")
