@@ -4,6 +4,7 @@ import com.example.bv111hospital.entity.Doctor;
 
 import com.example.bv111hospital.entity.Specialization;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

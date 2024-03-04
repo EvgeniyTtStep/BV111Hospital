@@ -1,5 +1,6 @@
 package com.example.bv111hospital.service;
 
+import com.example.bv111hospital.entity.User;
 import com.example.bv111hospital.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,4 +27,7 @@ public class UserDetailServiceImplementation implements UserDetailsService {
     }
 
 
+    public User loadUserById(Integer userId) {
+        return userRepo.findUserById(userId).orElse(new User());
+    }
 }
