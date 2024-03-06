@@ -13,6 +13,15 @@
 
 
 <h2>Doctor info</h2>
+
+<img width="500px" th:src="@{/image/{id}(id=${doctor.getIdDoctors()})}" alt="no image"/>
+
+<form th:action="@{/upload/{doctorId}(doctorId = ${doctor.getIdDoctors()})}" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept="image/*"> <br>
+    <input type="submit" value="Add photo">
+</form>
+
+
 <ul>
     <li th:text="${doctor.name}"/>
     <li th:text="${doctor.surname}"/>
