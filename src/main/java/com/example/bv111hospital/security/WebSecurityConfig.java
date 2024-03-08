@@ -70,8 +70,9 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers( "/doctor/**").authenticated()
+                        .requestMatchers("/doctor/**").authenticated()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/password_reset").permitAll()
                         .anyRequest().permitAll()
                 )
                 .formLogin((form) -> form
@@ -81,7 +82,6 @@ public class WebSecurityConfig {
                 .logout(LogoutConfigurer::permitAll);
         return http.build();
     }
-
 
 
     @Bean
